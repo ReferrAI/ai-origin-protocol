@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://referr.ai/specs/intent-token-v0.1.schema.json",
+  "title": "AIPP intent_token (v0.1)",
+  "type": "object",
+  "required": [
+    "from_ai"
+  ],
+  "properties": {
+    "from_ai": {
+      "type": "object",
+      "required": [
+        "ai_surface_id",
+        "product_ref",
+        "timestamp",
+        "signature"
+      ],
+      "properties": {
+        "ai_surface_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "publisher_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "product_ref": {
+          "type": "object",
+          "required": [
+            "merchant"
+          ],
+          "properties": {
+            "merchant": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sku": {
+              "type": "string"
+            },
+            "gtin": {
+              "type": "string"
+            },
+            "offer_id": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "context": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "signature": {
+          "type": "string",
+          "minLength": 8
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
