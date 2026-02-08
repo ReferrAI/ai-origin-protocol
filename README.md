@@ -1,73 +1,84 @@
-# AI Intent Provenance Protocol (AIPP)
+# AI Origin Protocol (AIOP)
 
 > **Maintained by the ReferrAI open-source community**
 
-The **AI Intent Provenance Protocol (AIPP)** is a lightweight, privacy-safe specification for documenting **where AI-generated commerce intent originated**.
+The **AI Origin Protocol (AIOP)** is a lightweight, privacy-safe specification for documenting **where AI-driven outcomes originate** — with an initial focus on **AI-driven commerce intent**.
 
-As AI assistants become a primary discovery surface for products, retailers and publishers lack a standard way to understand **which AI experiences influenced intent** — without tracking users, relying on cookies, or introducing new identity systems.
+As AI systems increasingly influence how people discover products, content, and services, the ecosystem lacks a neutral, standards-grade way to answer a simple question:
 
-AIPP solves this by defining a simple, cryptographically signed **intent token** that can travel from an AI experience to a retailer and be validated at the moment of engagement or conversion.
+> *Where did this AI-driven outcome come from?*
+
+AIOP provides a minimal, verifiable answer — **without tracking users, creating identity systems, or defining economics**.
 
 ---
 
 ## About ReferrAI
 
-**ReferrAI** is an open-source community focused on building **neutral infrastructure for AI referral and intent provenance**.
+**ReferrAI** is an open-source community stewarding **neutral infrastructure for AI origin and referral transparency**.
 
-ReferrAI is **not a company** and does not operate a commercial product.  
-It exists to steward open specifications, documentation, and reference tooling that enable transparency in AI-driven experiences.
+ReferrAI:
+- Is **not a company**
+- Does **not** operate a commercial product
+- Does **not** monetize the protocol
+- Exists to steward open specifications, documentation, and reference materials
+
+All development happens in public GitHub repositories.
 
 ---
 
-## What This Protocol Is
+## What the AI Origin Protocol Is
 
-**AIPP is an intent provenance signal — not a tracking system.**
+**AIOP is an origin signal — not a tracking system.**
 
-It provides a standardized way for downstream systems to answer one simple question:
-
-> *“Which AI experience influenced this intent?”*
+It enables downstream systems to understand **which AI experience or surface originated an outcome**, such as:
+- A product recommendation
+- A commerce referral
+- A disclosed AI influence
 
 ### Core principles
-- **No user identity** — zero PII by design  
-- **Short-lived tokens** — no persistence or cross-site tracking  
-- **Provenance, not attribution graphs**  
-- **Optional and interoperable** — adopters choose how to use the signal  
+- 🚫 **No user identity** (zero PII by design)
+- ⏱ **Short-lived tokens** (no persistence)
+- 🔍 **Verifiable, not behavioral**
+- 🔌 **Optional and interoperable**
+- 🧱 **Boring by design**
 
 ---
 
-## What This Protocol Is Not (Non-Goals)
+## What AIOP Is Not (Non-Goals)
 
-The AI Intent Provenance Protocol explicitly does **not** aim to:
+The AI Origin Protocol explicitly does **not** aim to:
 
-- ❌ Track users across sites or sessions  
-- ❌ Create, resolve, or persist identity  
-- ❌ Replace affiliate networks, RMNs, or ad platforms  
-- ❌ Guarantee deterministic attribution  
-- ❌ Act as a payments, settlement, or revenue-sharing system  
-- ❌ Compete with AdCP, OpenRTB, or clean room frameworks  
+- Track users or sessions
+- Create, resolve, or persist identity
+- Perform attribution or influence scoring
+- Guarantee deterministic credit
+- Define payments, revenue sharing, or “vig” models
+- Replace affiliate networks, RMNs, or ad platforms
+- Orchestrate media buying or optimization workflows
 
-These are deliberate non-goals to ensure privacy safety, platform compatibility, and ease of adoption.
+These boundaries are foundational to trust and adoption.
 
 ---
 
 ## Mental Model
 
-**AIPP is a modern, cryptographically verifiable successor to the HTTP `Referer`, purpose-built for AI-driven commerce.**
+**AIOP is a modern successor to the HTTP `Referer`, designed for AI systems.**
 
-- HTTP Referer → broke under privacy pressure  
 - Cookies → being deprecated  
-- UTMs → forgeable and brittle  
+- UTMs → brittle and forgeable  
+- Identity graphs → privacy-sensitive  
 
-AIPP provides a **verifiable, privacy-preserving signal** that documents *where AI intent came from* — nothing more.
+AIOP provides a **cryptographically verifiable origin signal** that documents *where an AI-driven outcome originated* — nothing more.
 
 ---
 
 ## How It Works (High Level)
 
-1. **AI experience generates intent**  
-2. **Intent token is issued**  
-3. **Retailer resolves the token**  
-4. **Optional aggregate outcomes**  
+1. An AI experience generates an outcome (e.g., a product recommendation)
+2. A short-lived, signed **origin token** is issued
+3. The token is passed to a downstream system (e.g., retailer, platform)
+4. The token is validated and origin is logged
+5. Optional, **aggregate** outcome signals may be produced
 
 At no point does the protocol identify a user.
 
@@ -76,6 +87,9 @@ At no point does the protocol identify a user.
 ## Core Primitive
 
 ### `intent_token` (v0.1)
+
+> *Note: The token name remains `intent_token` for stability in v0.1.  
+> Future versions may generalize naming as the protocol evolves.*
 
 ```json
 {
@@ -91,39 +105,3 @@ At no point does the protocol identify a user.
     "signature": "ed25519..."
   }
 }
-```
-
-**Key properties**
-- TTL ≤ 15 minutes  
-- No user identifiers  
-- Cryptographically signed to prevent forgery or replay  
-
----
-
-## Relationship to Other Standards
-
-- **AdCP**: ad workflow orchestration  
-- **AIPP**: AI commerce intent provenance  
-
-AIPP sits upstream of measurement and activation.
-
----
-
-## Why This Matters
-
-- Retailers: visibility into AI-driven demand without privacy risk  
-- Publishers: acknowledgment when their content informs AI intent  
-- AI platforms: neutral disclosure mechanism  
-- Regulators: clearer provenance without new tracking vectors  
-
-Documented intent provenance may support downstream uses such as analytics, disclosures, or publisher compensation policies — without the protocol defining those mechanisms.
-
----
-
-## Contributing
-
-See [`CONTRIBUTING.md`](./CONTRIBUTING.md).
-
----
-
-> **No identity. No tracking. Just provenance.**
