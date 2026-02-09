@@ -1,6 +1,6 @@
 # Governance (Draft)
 
-ReferrAI aims to keep AIPP minimal, neutral, and privacy-safe.
+ReferrAI aims to keep AIOP minimal, neutral, and privacy-safe.
 
 ## Working agreements
 - Prefer additive, backwards-compatible changes
